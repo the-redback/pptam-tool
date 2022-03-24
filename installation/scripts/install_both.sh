@@ -18,8 +18,8 @@ curl -sSL https://get.docker.com/ | sh
 usermod -aG docker vagrant
 
 # Adding both machines to the hosts file so that they can be found by name 
-sudo echo 192.168.50.100 driver >> /etc/hosts
-sudo echo 192.168.50.101 testbed >> /etc/hosts
+sudo echo 192.168.56.10 driver >> /etc/hosts
+sudo echo 192.168.56.11 testbed >> /etc/hosts
 
 # This increases the number of allowed open files
 sudo echo * - nofile 100000 >> /etc/security/limits.conf

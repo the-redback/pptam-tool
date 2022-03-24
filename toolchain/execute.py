@@ -42,6 +42,7 @@ def create_output_directory(configuration, section):
     now = datetime.datetime.now()
     test_id_without_timestamp = configuration[section]["test_case_prefix"].lower() + "-" + section.lower()
     test_id = now.strftime("%Y%m%d%H%M") + "-" + test_id_without_timestamp
+    test_id = 'train-ticket'
 
     all_outputs = os.path.abspath(os.path.join("./executed"))
     if not os.path.isdir(all_outputs):

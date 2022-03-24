@@ -51,8 +51,9 @@ def measure_worker(configuration, output, test_id, write_queue):
 
         containers_to_watch = configuration["docker_stats_containers"].split()
         sut_hostname = configuration["docker_stats_hostname"]
-        docker_client = docker.DockerClient(base_url=f"{sut_hostname}:2375")
-        for container in docker_client.containers.list():
+        # docker_client = docker.DockerClient(base_url=f"{sut_hostname}:2375")
+        docker_client = docker.DockerClient(base_url=f"unix:///var/run/docker.sock")
+    for container in docker_client.containers.list():
             service_name = container.name[len(test_id)+1:]
             last_dot = service_name.rfind(".")
             if last_dot > 0:

@@ -127,6 +127,7 @@ class Requests:
         # Select order
         response_order_refresh = self.client.post(url="/api/v1/orderservice/order/refresh", name=req_label, headers=head, json={"loginId": self.user_id, "enableStateQuery": "false", "enableTravelDateQuery": "false", "enableBoughtDateQuery": "false", "travelDateStart": "null", "travelDateEnd": "null", "boughtDateStart": "null", "boughtDateEnd": "null"})
         response_as_json = response_order_refresh.json()["data"]
+        logging.debug(f""" >>>>  {response_as_json} """)
         self.order_id = response_as_json[0]["id"]
 
         # Pay
