@@ -7,3 +7,4 @@ do
    echo "Service ID: $i "
    docker service logs $i > ./logs/$i.log 2>&1
 done
+
